@@ -1,11 +1,7 @@
 import styles from './home.css';
-import { ReportScene } from '../reports'
+import { getUsers } from '../../../api/api';
 
 export function HomeScene() {
-
-  // generate random number between 1 an 10
-  const randomNumber = Math.floor(Math.random() * 10) + 1;
-
   const footer = `
   <footer><p>All rights reserved.</p></footer>
   `;
@@ -17,61 +13,37 @@ export function HomeScene() {
     <div id="user-info"></div>
     ${footer}
   </div>
-  <div class="${styles.loader}" id="loader">
-  </div>
+  <div class="${styles.loader}" id="loader"></div>
   `;
 
-  const logic = () => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${randomNumber}`)
-      .then(response => response.json())
-      // .then(json => {
-      //   // Primero, obtenemos el elemento en dodne deseamos insetar el usuario
-      //   const userInfo = document.getElementById('user-info');
-      //   // Luego, creamos dos elementos de tipo p
-      //   const pId = document.createElement('p');
-      //   const pName = document.createElement('p');
-      //   // Luego, mostramos el ID
-      //   pId.innerText = `User: ${json.id}`;
-      //   // Luego, mostramos el nombre
-      //   pName.innerText = `Name: ${json.name}`;
-      //   // Acto seguido insertamos los elementos en el div
-      //   userInfo.appendChild(pId);
-      //   userInfo.appendChild(pName);
-      //   // Finalmente, mostramos el div
-      //   document.getElementById('home_container').classList.remove(styles.hidden);
-      // })
-      .then(({
-        id, name, username, email, address: {
-          street, suite, city, zipcode, geo: {
-            lat, lng
-          }
-        },
-        phone, website, company: {
-          name: companyName, catchPhrase, bs
-        }
-      }) => {
-        const userInfo = document.getElementById('user-info');
+  const logic = async () => {
+    try {
+      const users = await getUsers();
+      const featured = users[0];
+
+      const userInfo = document.getElementById('user-info');
+      if (!featured) {
+        userInfo.innerHTML = '<p>No hay usuarios disponibles.</p>';
+      } else {
         userInfo.innerHTML = `
-        <p>User: ${id}</p>
-        <p>Name: ${name}</p>
-        <p>Username: ${username}</p>
-        <p>Email: ${email}</p>
-        <p>Address: ${street}, ${suite}, ${city}, ${zipcode}</p>
-        <p>Geo: ${lat}, ${lng}</p>
-        <p>Phone: ${phone}</p>
-        <p>Website: ${website}</p>
-        <p>Company: ${companyName}</p>
-        <p>Catch Phrase: ${catchPhrase}</p>
-        <p>BS: ${bs}</p>
+          <p>User: ${featured.id}</p>
+          <p>Name: ${featured.name} ${featured.last_name}</p>
+          <p>Email: ${featured.email}</p>
+          <p>Address: ${featured.address}, ${featured.city}, ${featured.country}</p>
+          <p>Phone: ${featured.number}</p>
         `;
-        // Finalmente, ocultamos el loader y mostramos el div
-        document.querySelector(`#loader`).classList.add(styles.hidden);
-        document.getElementById('home_container').classList.remove(styles.hidden);
-      })
+      }
+    } catch (error) {
+      const userInfo = document.getElementById('user-info');
+      userInfo.innerHTML = '<p>Error cargando datos desde la API local.</p>';
+    } finally {
+      document.querySelector('#loader').classList.add(styles.hidden);
+      document.getElementById('home_container').classList.remove(styles.hidden);
+    }
   };
 
   return {
     pageContent,
-    logic
-  }
+    logic,
+  };
 }
