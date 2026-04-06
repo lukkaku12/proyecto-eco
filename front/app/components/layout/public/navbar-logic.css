@@ -261,3 +261,82 @@
   width: 100%;  
   height: 80%;
 }
+
+/* Modal overrides for login/register popup */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 24px;
+}
+
+.modalContent {
+  position: relative;
+  width: min(1120px, 96vw);
+  min-height: 580px;
+  max-height: calc(100vh - 32px);
+  background-color: rgba(41, 129, 114, 0.92);
+  border-radius: 20px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  overflow: auto;
+  color: #fff;
+}
+
+.form {
+  width: min(500px, 100%);
+  margin: 0;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+}
+
+.divRight {
+  margin: 0;
+  flex: 0 0 280px;
+  color: #fff;
+}
+
+.divRight h2,
+.divRight p {
+  color: #fff;
+}
+
+.modalClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #226559;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 860px) {
+  .modalContent {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .divRight {
+    flex: 0 0 auto;
+    margin-right: 0;
+    text-align: center;
+  }
+}

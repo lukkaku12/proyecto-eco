@@ -25,8 +25,6 @@ const createUser = async ({
   country,
   rol_id,
 }) => {
-  //before inserting
-  console.log("hashed_pass", password);
   const query = 'INSERT INTO users (name, email, password, last_name, number, city, country, rol_id, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
   const values = [name, email, password, last_name, number, city, country, rol_id, address,];
   try {

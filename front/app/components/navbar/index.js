@@ -13,10 +13,10 @@ export function NavigationBar() {
     </div>
   <!--header opciones -->
     <nav class="${styles.navigation}">
-        <a href="#" class="${styles.active}">Home</a>
-        <a href="#" id="about">About</a>
-        <a href="#">Service</a>
-        <a href="#">Contact</a>
+        <a href="/home-page" id="nav-home" class="${styles.active}">Home</a>
+        <a href="/about-us" id="nav-about">About</a>
+        <a href="/services" id="nav-service">Service</a>
+        <a href="/home-page?section=contact" id="nav-contact">Contact</a>
     </nav>
   <!-- header buscar, carrito y login -->
   <div class="${styles.nav_active}">
@@ -31,7 +31,7 @@ export function NavigationBar() {
     </div>
     <div class="${styles.icon} ${styles.submenu}" id="carrito">
       <img src="${shopping_cart_24dp_FILL0_wght400_GRAD0_opsz24}"  alt="">
-                    <div class="${styles.carrito}" id="carrito">
+                    <div class="${styles.carrito}" id="carrito-menu">
                         <div  id="lista-carrito">
                             <div class="${styles.productos_carrito}"></div>
                         </div>    

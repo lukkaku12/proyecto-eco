@@ -1,16 +1,25 @@
 import styles from './register.css';
 
-export async function RegisterPage() {
-    const root = document.getElementById('root');
-    root.innerHTML = `
-        <div class="${styles["my-div"]} ${styles["my-border"]}">Hola mundo</div>
-        <p>Esta es la vista para registrarse</p>
-        <button id="register">Registrarse</button>
-        `;
+export function RegisterPage() {
+  const pageContent = `
+    <div class="${styles['my-div']} ${styles['my-border']}">Hola mundo</div>
+    <p>Esta es la vista para registrarse</p>
+    <button id="register">Registrarse</button>
+  `;
 
-    //logic
+  const logic = () => {
     const myBtn = document.querySelector('#register');
+    if (!myBtn) {
+      return;
+    }
+
     myBtn.addEventListener('click', () => {
-        alert('Registrado');
+      alert('Registrado');
     });
+  };
+
+  return {
+    pageContent,
+    logic,
+  };
 }

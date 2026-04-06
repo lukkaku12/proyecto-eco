@@ -36,12 +36,12 @@ const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      last_name,
-      number,
-      address,
-      city,
-      country,
-      rol_id,
+      last_name: last_name || null,
+      number: number || null,
+      address: address || null,
+      city: city || null,
+      country: country || null,
+      rol_id: rol_id || 2,
     }); // Pasa los nuevos campos al método createUser
     if(!newUserId.id) {
       return res.status(404).json({ message: 'Error al crear el usuario' });
@@ -76,7 +76,6 @@ const updateProfile = async (req, res) => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    console.log(hashedPassword);
     const affectedRows = await updateUser({
       name,
       email,
@@ -125,10 +124,7 @@ const login = async (req, res) => {
       return res.status(400).json({ message: 'Ese Usuario no existe' });
     }
     // Comparar contraseñas
-    console.log('Contraseña ingresada:', password);
-    console.log('Contraseña almacenada (hasheada):', user.password);
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(isMatch);
     if (!isMatch) {
       return res
         .status(400)

@@ -250,15 +250,25 @@ main{
   margin-top: 2%;
 }
 .slider {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
-  padding: 60px 40px;
+  width: 100%;
+  padding: 20px 8px;
   position: relative;
-  gap: 50px;
+  gap: 12px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
 }
 
 .slider .product {
   transition: 0.5s;
+  flex: 0 0 calc((100% - 24px) / 3);
+  min-width: 260px;
 }
 
 .products{
@@ -312,22 +322,37 @@ main{
   justify-content: space-between;
   align-items: center;
   height: 60vh;
+  gap: 8px;
 }
 
-.arrows img{
-  width: 254px;
-  height: 54px;
+.arrows {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #298172;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.arrow img{
-  width: 54px;
-  height: 54px;
+.arrows img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
 
+.cards {
+  width: 100%;
+  max-width: calc(100% - 110px);
+  overflow: hidden;
 }
 
 .card{
   position: relative;
-  width: 312.96px;
+  width: 100%;
+  max-width: 312.96px;
   height: 350px;
   border-radius: 40px;
   background-color: #298172;
@@ -339,7 +364,7 @@ main{
   left: -10px;
   background-color: #003329;
   border-radius: 40px;
-  width: 312.96px;
+  width: calc(100% + 10px);
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -348,9 +373,10 @@ main{
 }
 
 .card_prodct img{
-  width: 80%;
+  width: calc(100% - 24px);
+  height: 200px;
   border-radius: 40px;
-  margin-top: 10px;
+  margin-top: 12px;
   object-fit: cover;
   object-position: center;
 }
@@ -386,9 +412,7 @@ main{
   display: flex;
   height: 100%;
   justify-content: center;
-  gap: 50px;
   align-items: center;
-  overflow: hidden;
 }
 
 .artles{
@@ -409,6 +433,8 @@ main{
   height: 28%;
   display: flex;
   align-items: center;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .perfil_comentario{
@@ -416,10 +442,20 @@ main{
   width: 20%;
   height: 90%;
   margin-left: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.perfil_comentario img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .comentarios_text{
   margin-left: 50px;
+  padding-right: 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;

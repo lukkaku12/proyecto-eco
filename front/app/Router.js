@@ -3,12 +3,12 @@ import { DashboardLayoutPublic } from './components/layout/public/layout';
 import { routes } from './helpers/routes';
 
 
-const API_URL = 'http://localhost:4000/api/auth/verify-token';
+const API_URL = 'http://localhost:5000/api/auth/verify-token';
 
 // Verificar token con la API
   export async function verifyToken(token) {
     try {
-      const response = await fetch('http://localhost:4000/api/auth/verify-token', {
+      const response = await fetch('http://localhost:5000/api/auth/verify-token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,11 +31,20 @@ const API_URL = 'http://localhost:4000/api/auth/verify-token';
 
 // Navegar a una nueva ruta
 export function navigateTo(path) {
-  window.history.pushState({}, '', window.location.origin + path);
-  const publicRoute = routes.public.find((r) => r.path === path);
-  const params = new URLSearchParams(window.location.search)
-  const {pageContent, logic} = publicRoute.component(params)
-  DashboardLayoutPublic(pageContent,logic);
+  const targetUrl = new URL(path, window.location.origin);
+  const routePath = targetUrl.pathname;
+
+  window.history.pushState({}, '', targetUrl.pathname + targetUrl.search);
+
+  const publicRoute = routes.public.find((r) => r.path === routePath);
+  if (!publicRoute) {
+    console.warn('Ruta p\u00fablica no encontrada:', routePath);
+    return;
+  }
+
+  const params = new URLSearchParams(targetUrl.search);
+  const { pageContent, logic } = publicRoute.component(params);
+  DashboardLayoutPublic(pageContent, logic);
 }
 
 // Verificar la autenticación y redirigir

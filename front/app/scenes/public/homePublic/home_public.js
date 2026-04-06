@@ -17,12 +17,15 @@ import tree from '../../../assets/img/tree.png';
 import imagenAbout from '../../../assets/img/imagenAbout.png';
 import whastp from '../../../assets/img/whastp.png';
 import youtube from '../../../assets/img/youtube.png';
+import vegetales from '../../../assets/img/vegetales.jpg';
+import hogar from '../../../assets/img/hogar.png';
+import graficas from '../../../assets/img/graficas.jpg';
 import arrow_back_ios_24dp_FILL0_wght400_GRAD0_opsz24 from '../../../assets/img/arrow_back_ios_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import arrow_forward_ios_24dp_FILL0_wght400_GRAD0_opsz24 from '../../../assets/img/arrow_forward_ios_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import { navigateTo } from '../../../Router';
 
 export function HomePagePublic(params) {
-  const pageContent = /* html */`
+  const pageContent = `
     <div ${styles.cuerpo}> 
     <!-- fondo de montañas -->
     <section class="${styles.parallax}">
@@ -51,7 +54,7 @@ export function HomePagePublic(params) {
               <p>50 Products</p>
               <p>+20 <br> Allies</p>
             </div>
-            <p class="${styles.cont_txt}">Life is a fascinating journey filled with unexpected twists and unforgettable experiences. Each day presents us with new opportunities to grow, learn, and connect with the world around us. Along this path, we face challenges that strengthen us and moments of joy that remind us of the beauty of  being alive. It's important to remember that each person has.</p>
+            <p class="${styles.cont_txt}">En Eco store creemos que comprar mejor tambi\u00e9n es cuidar el planeta. Por eso reunimos productos ecol\u00f3gicos para el hogar, bienestar y alimentaci\u00f3n, seleccionados por su impacto positivo y calidad. Nuestro objetivo es ayudarte a llevar un estilo de vida m\u00e1s consciente, pr\u00e1ctico y sostenible en tu d\u00eda a d\u00eda.</p>
             <a href="" class="${styles.btn1}">See More</a>
           </div>
           <div class="${styles.about_img}">
@@ -74,19 +77,7 @@ export function HomePagePublic(params) {
               <img class="${styles.arrow}" src="${arrow_back_ios_24dp_FILL0_wght400_GRAD0_opsz24}" alt="">
             </div>
             <div class="${styles.cards}">
-              <div class="${styles.slider} slider" id="lista_1">
-              <div class="${styles.card}">
-                <div class="${styles.card_prodct}">
-                  <img src="/" alt="">
-                  <h3 class="${styles.title_product}">hg</h3>
-                  <div class="${styles.producct_info}">
-                    <p class="${styles.precio} precio">5</p>
-                    <a class="${styles.btn2} agregar_carrito" data-id="1">Add to cart</a>
-                  </div>
-                </div>
-              </div>
-
-              </div>
+              <div class="${styles.slider} slider" id="lista_1"></div>
             </div>
             <div class="${styles.arrows} right" id="right">
               <img class="${styles.arrow}" src="${arrow_forward_ios_24dp_FILL0_wght400_GRAD0_opsz24}" alt="">
@@ -95,33 +86,39 @@ export function HomePagePublic(params) {
         </section>
         <section class="${styles.artles}">
             <div class="${styles.algunos_comentarios}">
-                <div class="${styles.perfil_comentario}"></div>
+                <div class="${styles.perfil_comentario}">
+                  <img src="${vegetales}" alt="Canasta de vegetales frescos">
+                </div>
                 <div class="${styles.comentarios_text}">
-                    <p class="${styles.artles_ttitle}">Lorem ipsum dolor sit.</p>
-                    <p class="${styles.arles_txt}">Lorem ipsum dolor sit amet consectetur molestias. Eos ratione ex nisi voluptatem possimus natus qui iste iure soluta quam, corporis doloremque obcaecati sunt sequi, quaerat ullam at deserunt. Neque itaque animi accusantium architecto vitae. Accusantium veritatis aspernatur vitae excepturi atque? Rem incidunt quia vitae quidem, fugiat dolore quas iusto sequi exercitationem illum aperiam eos fugit nostrum </p>
+                    <p class="${styles.artles_ttitle}">Consumo responsable, resultados reales</p>
+                    <p class="${styles.arles_txt}">Cada compra en ECO-ST est\u00e1 pensada para reducir residuos y apoyar alternativas m\u00e1s limpias. Desde alimentos de origen responsable hasta productos reutilizables, te ayudamos a reemplazar h\u00e1bitos cotidianos por opciones que suman al planeta.</p>
                     <a href="" class="${styles.btn3}">Read More</a>
                 </div>
             </div>
             <div class="${styles.algunos_comentarios}">
-                <div class="${styles.perfil_comentario}"></div>
+                <div class="${styles.perfil_comentario}">
+                  <img src="${hogar}" alt="Productos ecol\u00f3gicos para el hogar">
+                </div>
                 <div class="${styles.comentarios_text}">
-                    <p class="${styles.artles_ttitle}">Lorem ipsum dolor sit.</p>
-                    <p class="${styles.arles_txt}">Lorem ipsum dolor sit amet consectetur molestias. Eos ratione ex nisi voluptatem possimus natus qui iste iure soluta quam, corporis doloremque obcaecati sunt sequi, quaerat ullam at deserunt. Neque itaque animi accusantium architecto vitae. Accusantium veritatis aspernatur vitae excepturi atque? Rem incidunt quia vitae quidem, fugiat dolore quas iusto sequi exercitationem illum aperiam eos fugit nostrum </p>
+                    <p class="${styles.artles_ttitle}">Tu hogar, m\u00e1s verde y funcional</p>
+                    <p class="${styles.arles_txt}">Seleccionamos productos que cuidan tu salud y la de tu familia, sin perder dise\u00f1o ni funcionalidad. Detergentes biodegradables, utensilios durables y soluciones inteligentes para un hogar moderno con menor huella ambiental.</p>
                     <a href="" class="${styles.btn3}">Read More</a>
                 </div>
             </div>
             <div class="${styles.algunos_comentarios}">
-                <div class="${styles.perfil_comentario}"></div>
+                <div class="${styles.perfil_comentario}">
+                  <img src="${graficas}" alt="Crecimiento del impacto sostenible">
+                </div>
                 <div class="${styles.comentarios_text}">
-                    <p class="${styles.artles_ttitle}">Lorem ipsum dolor sit.</p>
-                    <p class="${styles.arles_txt}">Lorem ipsum dolor sit amet consectetur molestias. Eos ratione ex nisi voluptatem possimus natus qui iste iure soluta quam, corporis doloremque obcaecati sunt sequi, quaerat ullam at deserunt. Neque itaque animi accusantium architecto vitae. Accusantium veritatis aspernatur vitae excepturi atque? Rem incidunt quia vitae quidem, fugiat dolore quas iusto sequi exercitationem illum aperiam eos fugit nostrum</p>
+                    <p class="${styles.artles_ttitle}">Impacto medible en cada decisi\u00f3n</p>
+                    <p class="${styles.arles_txt}">Trabajamos con aliados y categor\u00edas que promueven econom\u00eda circular, materiales renovables y procesos de bajo impacto. As\u00ed, cada producto que eliges en la tienda aporta a una cadena de valor m\u00e1s justa y sostenible.</p>
                     <a href="" class="${styles.btn3}">Read More</a>
                 </div>
             </div>
         </section>
 
     </main>
-    <footer class="${styles.pie_pagina}">
+    <footer class="${styles.pie_pagina}" id="contact-section">
       <img class="${styles.logo}" src="${logo}" alt="img">
       <div class="${styles.contact}">
         <h2>Contacto</h2>
@@ -150,7 +147,6 @@ export function HomePagePublic(params) {
     `;
 
   const logic = () => {
-    mostrarProductos();
     let text = document.getElementById('text');
     let leaf = document.getElementById('leaf');
     let hill1 = document.getElementById('hill1');
@@ -161,51 +157,55 @@ export function HomePagePublic(params) {
     let carrito = document.getElementById('carrito');
     let input = document.getElementById('input_1');
     let aboutSection = document.getElementById('about_secion');
-    let about = document.getElementById('about');
+    let about = document.getElementById('nav-about');
+    let contactSection = document.getElementById('contact-section');
 
-    about.addEventListener('click', (evento) => {
-      evento.preventDefault();
-      navigateTo('/about-us');
-    });
+    if (about) {
+      about.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        navigateTo('/about-us');
+      });
+    }
 
-    const products = document.querySelectorAll('.slider .product');
+    if (params && params.get('section') === 'contact' && contactSection) {
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
 
     let arrowleft = document.getElementById('left');
     let arrowrigth = document.getElementById('right');
 
-    arrowleft.addEventListener('click', () => {
-      left();
-    });
-
-    arrowrigth.addEventListener('click', () => {
-      right();
-    });
-
-    let counter = 0;
-    function left() {
-      console.log('hola desde arrow function left');
-      if (counter === 0) {
-        counter = products.length / 3 - 1;
-      } else {
-        counter--;
+    mostrarProductos().then(() => {
+      const slider = document.getElementById('lista_1');
+      const products = slider ? slider.querySelectorAll('.product') : [];
+      if (!slider || !products.length) {
+        return;
       }
-      scroll();
-    }
 
-    function right() {
-      if (counter === products.length / 3 - 1) {
-        counter = 0;
-      } else {
-        counter++;
-      }
-      scroll();
-    }
+      const moveSlider = (direction) => {
+        const firstProduct = slider.querySelector('.product');
+        if (!firstProduct) {
+          return;
+        }
 
-    function scroll() {
-      products.forEach((item) => {
-        item.style.transform = `translateX(-${counter * 84}vw)`;
+        const sliderStyles = window.getComputedStyle(slider);
+        const gap = parseFloat(sliderStyles.columnGap || sliderStyles.gap) || 0;
+        const step = firstProduct.offsetWidth + gap;
+        slider.scrollBy({
+          left: direction * step,
+          behavior: 'smooth',
+        });
+      };
+
+      arrowleft.addEventListener('click', () => {
+        moveSlider(-1);
       });
-    }
+
+      arrowrigth.addEventListener('click', () => {
+        moveSlider(1);
+      });
+    });
 
     // Calcula la posición vertical de la sección "About Us"
     let aboutSectionPosition = aboutSection.offsetTop;
@@ -224,8 +224,12 @@ export function HomePagePublic(params) {
         header.style.backgroundColor = '#f9f9f9';
         carrito.style.backgroundColor = '#298172';
         user.style.backgroundColor = '#298172';
-        carrito.style.padding = '5px';
-        user.style.padding = '5px';
+        carrito.style.padding = '0';
+        user.style.padding = '0';
+        carrito.style.width = '60px';
+        carrito.style.height = '60px';
+        user.style.width = '60px';
+        user.style.height = '60px';
         carrito.style.borderRadius = '50px';
         user.style.borderRadius = '50px';
         input.style.border = '2px solid #298172';
@@ -247,30 +251,27 @@ export function HomePagePublic(params) {
   };
 
   async function AllProduct() {
-    return {
-      
+    try {
+      const response = await fetch(
+        'http://localhost:5000/api/auth/get-products'
+      );
+      if (!response.ok) {
+        throw new Error('Error al obtener los productos');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error al obtener los productos:', error);
+      return null;
     }
-  //   try {
-  //     const response = await fetch(
-  //       'http://localhost:4000/api/auth/get-products'
-  //     );
-  //     if (!response.ok) {
-  //       throw new Error('Error al obtener los productos');
-  //     }
-  //     const data = await response.json();
-  //     return data;
-  //   } catch (error) {
-  //     console.error('Error al obtener los productos:', error);
-  //     return null;
-  //   }
-  // }
+  }
 
   async function AllProductbyIdcategory(id_category) {
     try {
       const response = await fetch(
-        'http://localhost:4000/api/auth/get-product-by-id-category',
+        'http://localhost:5000/api/auth/get-product-by-id-category',
         {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -293,27 +294,31 @@ export function HomePagePublic(params) {
     const productos = await AllProduct();
     const contenedorProductos = document.getElementById('lista_1');
 
-    productos.forEach((producto) => {
-      const divProducto = document.createElement('div');
-      divProducto.classList.add('${styles.product}', 'product');
-      divProducto.innerHTML = `
-        <div class="${styles.card}">
-          <div class="${styles.card_prodct}">
-            <img src="${producto.image}" alt="${producto.nombre}">
-            <h3 class="${styles.title_product}">${producto.name}</h3>
-            <div class="${styles.producct_info}">
-              <p class="${styles.precio} precio">${producto.price}</p>
-              <a class="${styles.btn2} agregar_carrito" data-id="${producto.id}">Add to cart</a>
+    if (productos && Array.isArray(productos)) {
+      productos.forEach((producto) => {
+        const divProducto = document.createElement('div');
+        divProducto.classList.add(styles.product, 'product');
+        divProducto.innerHTML = `
+          <div class="${styles.card}">
+            <div class="${styles.card_prodct}">
+              <img src="${producto.image}" alt="${producto.nombre}">
+              <h3 class="${styles.title_product}">${producto.name}</h3>
+              <div class="${styles.producct_info}">
+                <p class="${styles.precio} precio">${producto.price}</p>
+                <a class="${styles.btn2} agregar_carrito" data-id="${producto.id}">Add to cart</a>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-      contenedorProductos.appendChild(divProducto);
-    });
+        `;
+        contenedorProductos.appendChild(divProducto);
+      });
+    } else {
+      console.error('No se pudieron cargar los productos o la respuesta no es un array');
+    }
   }
 
   return {
     pageContent,
     logic,
   };
-}
+};

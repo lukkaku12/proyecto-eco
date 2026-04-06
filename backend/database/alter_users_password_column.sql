@@ -1,0 +1,4 @@
+USE eco;
+
+ALTER TABLE users
+MODIFY COLUMN password VARCHAR(255) NOT NULL;

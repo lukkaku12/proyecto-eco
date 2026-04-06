@@ -25,14 +25,14 @@ CREATE TABLE IF NOT EXISTS `roles` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(150) NOT NULL,
-  `number` varchar(11) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(85) NOT NULL,
-  `country` varchar(56) NOT NULL,
-  `rol_id` int(11) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `number` varchar(11) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(85) DEFAULT NULL,
+  `country` varchar(56) DEFAULT NULL,
+  `rol_id` int(11) NOT NULL DEFAULT 2,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_rol_id` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB;
@@ -74,13 +74,14 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(90) NOT NULL,
   `price` int(8) NOT NULL,
   `quantity` int(2) NOT NULL,
   `image` varchar(255) NOT NULL,
   `id_category` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_id_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`)
 ) ENGINE=InnoDB;
 
 
