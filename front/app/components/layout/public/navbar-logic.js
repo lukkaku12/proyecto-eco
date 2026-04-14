@@ -161,12 +161,12 @@ export function logicNav() {
 
       if (!response.ok) {
         const errorMessage = await response.text();
-        throw new Error(errorMessage || 'Register failed');
+        throw new Error(errorMessage || 'Fallo en el registro');
       }
 
       return true;
     } catch (error) {
-      console.error('Register failed:', error);
+      console.error('Fallo en el registro:', error);
       return false;
     }
   }
@@ -179,19 +179,19 @@ export function logicNav() {
     popUp.className = style.modalOverlay;
     popUp.innerHTML = `
       <div class="${style.modalContent}">
-        <button id="close-auth-modal" class="${style.modalClose}" type="button" aria-label="Close">x</button>
+        <button id="close-auth-modal" class="${style.modalClose}" type="button" aria-label="Cerrar">x</button>
         <form id="loginForm" class="${style.form}">
-          <h2 class="${style.Login}">Login</h2>
-          <label for="email" class="${style.label}">Email:</label>
+          <h2 class="${style.Login}">Iniciar sesion</h2>
+          <label for="email" class="${style.label}">Correo:</label>
           <input type="text" id="email" name="email" autocomplete="email" class="${style['input-email']}">
-          <label for="password" class="${style.label}">Password:</label>
+          <label for="password" class="${style.label}">Contrasena:</label>
           <input type="password" id="password" name="password" autocomplete="current-password" class="${style['input-password']}">
-          <button type="submit" class="${style['button-send']}">Login</button>
+          <button type="submit" class="${style['button-send']}">Entrar</button>
         </form>
         <div class="${style.divRight}">
-          <h2>Still do not have an account?</h2>
-          <p>Register so you can login</p>
-          <button class="${style.registerBtn}" id="profile-register-btn" type="button">Register</button>
+          <h2>Aun no tienes cuenta?</h2>
+          <p>Registrate para continuar</p>
+          <button class="${style.registerBtn}" id="profile-register-btn" type="button">Registrarme</button>
         </div>
       </div>
     `;
@@ -222,7 +222,7 @@ export function logicNav() {
         const password = document.getElementById('password').value;
 
         if (!formValidator(email, password)) {
-          alert('Please fill in all fields');
+          alert('Completa todos los campos');
           return;
         }
 
@@ -232,7 +232,7 @@ export function logicNav() {
           localStorage.setItem('holaaaa', 'hola');
           navigateTo('/home-page');
         } else {
-          alert('Invalid credentials');
+          alert('Credenciales invalidas');
         }
       });
     }
@@ -246,23 +246,23 @@ export function logicNav() {
     popUp.className = style.modalOverlay;
     popUp.innerHTML = `
       <div class="${style.modalContent}">
-        <button id="close-auth-modal" class="${style.modalClose}" type="button" aria-label="Close">x</button>
+        <button id="close-auth-modal" class="${style.modalClose}" type="button" aria-label="Cerrar">x</button>
         <form id="registerForm" class="${style.form}">
-          <h2 class="${style.Login}">Register</h2>
-          <label for="register-name" class="${style.label}">Name:</label>
+          <h2 class="${style.Login}">Registro</h2>
+          <label for="register-name" class="${style.label}">Nombre:</label>
           <input type="text" id="register-name" autocomplete="name" class="${style['input-email']}">
-          <label for="register-email" class="${style.label}">Email:</label>
+          <label for="register-email" class="${style.label}">Correo:</label>
           <input type="text" id="register-email" autocomplete="email" class="${style['input-email']}">
-          <label for="register-password" class="${style.label}">Password:</label>
+          <label for="register-password" class="${style.label}">Contrasena:</label>
           <input type="password" id="register-password" autocomplete="new-password" class="${style['input-password']}">
-          <label for="register-confirm" class="${style.label}">Confirm password:</label>
+          <label for="register-confirm" class="${style.label}">Confirmar contrasena:</label>
           <input type="password" id="register-confirm" autocomplete="new-password" class="${style['input-password']}">
-          <button type="submit" class="${style['button-send']}">Create account</button>
+          <button type="submit" class="${style['button-send']}">Crear cuenta</button>
         </form>
         <div class="${style.divRight}">
-          <h2>Do you already have an account?</h2>
-          <p>Return to login</p>
-          <button class="${style.registerBtn}" id="back-to-login-btn" type="button">Back to login</button>
+          <h2>Ya tienes una cuenta?</h2>
+          <p>Vuelve al inicio de sesion</p>
+          <button class="${style.registerBtn}" id="back-to-login-btn" type="button">Ir a entrar</button>
         </div>
       </div>
     `;
@@ -296,22 +296,22 @@ export function logicNav() {
         const confirmPassword = document.getElementById('register-confirm').value;
 
         if (!name || !formValidator(email, password)) {
-          alert('Please fill in all fields');
+          alert('Completa todos los campos');
           return;
         }
 
         if (password !== confirmPassword) {
-          alert('Passwords do not match');
+          alert('Las contrasenas no coinciden');
           return;
         }
 
         const registered = await registerUser(name, email, password);
         if (!registered) {
-          alert('Register failed');
+          alert('No se pudo registrar');
           return;
         }
 
-        alert('Registered successfully');
+        alert('Registro exitoso');
         renderLoginModal();
       });
     }

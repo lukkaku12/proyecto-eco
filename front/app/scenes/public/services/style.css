@@ -1,127 +1,263 @@
-*{
-    font-family: Poppins;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #298172;
+  --dark-color: #003329;
+  --bg-color: #f9f9f9;
 }
 
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
-    gap: 10%;
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.dimensions{
-    width: 100px;
-    height: 100px;
+.services {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 0% 0%, #e6f4f1 0%, var(--bg-color) 48%);
+  color: var(--dark-color);
+  padding: 120px 6vw 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
-nav{
-    display: flex;
-    flex-direction: row;
-    margin-left: 20%;
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
 }
 
-nav ul li{
-    list-style: none;
+.heroText h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: #359381;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-    border: 2px solid #359381;
-    border-radius: 50px;
-    background-color: #359381;
-    color: white;
+.badge {
+  display: inline-flex;
+  background-color: rgba(41, 129, 114, 0.14);
+  color: var(--primary-color);
+  border: 1px solid rgba(41, 129, 114, 0.3);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
-main h1 {
-    text-align: center;
-    margin: 5%;
+.subtitle {
+  font-size: 1.03rem;
+  line-height: 1.65;
+  max-width: 640px;
 }
 
-main h2{
-    text-align: center;
-    margin: 2%;
+.actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-main p {
-    margin-left: 2%;
+.primaryBtn,
+.secondaryBtn,
+.cardBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.pictureMain{
-    margin-left: 25%;
-    margin-top: 5%;
-    width: 700px;
-    height: 300px;
+.primaryBtn:hover,
+.secondaryBtn:hover,
+.cardBtn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
 }
 
-main h3 {
-    text-align: center;
+.primaryBtn {
+  background-color: var(--dark-color);
+  color: var(--bg-color);
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    gap: 5%;
+.secondaryBtn {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
 }
 
-.products{
-    background-color: #00251f;
-    border-radius: 50px;
-    width:380px;
-    height: 450px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
+.heroImageWrap {
+  background-color: var(--dark-color);
+  border-radius: 30px;
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 51, 41, 0.2);
 }
 
-.imgProduct{
-    background-color: white;
-    border-radius: 50px;
-    width: 350px;
-    height: 300px;
-    margin: 4%;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
+.heroImage {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 22px;
 }
 
-.belleza{
-    width: 90%;
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 16px;
 }
 
-.cuidado{
-    width: 90%;
+.kpiCard {
+  background-color: var(--dark-color);
+  color: var(--bg-color);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 12px 28px rgba(0, 51, 41, 0.15);
 }
 
-.hogar{
-    width: 90%;
+.kpiValue {
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-.descriptionProduct{
-    width: 300px;
-    height: 100px;
-    margin-left: 5%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+.kpiLabel {
+  opacity: 0.92;
 }
 
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 24px;
+}
 
-.button{
-    width: 90px;
-    height: 50px;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-    border: #359381;
-    background-color: #359381;
-    color: white;
-    font-weight: bold;
+.insightImage {
+  background-color: var(--dark-color);
+  border-radius: 24px;
+  padding: 10px;
+}
+
+.insightImage img {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.insightText {
+  background-color: #ffffff;
+  border: 1px solid #dbeee9;
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.insightText h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+}
+
+.insightText p {
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.list {
+  margin-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.catalog {
+  background-color: var(--dark-color);
+  border-radius: 28px;
+  padding: 30px;
+  color: var(--bg-color);
+}
+
+.catalog h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.catalog > p {
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+.cards {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background-color: #21564d;
+  border-radius: 24px;
+  padding: 12px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardImageWrap {
+  background-color: #fff;
+  border-radius: 18px;
+  padding: 10px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.cardBtn {
+  align-self: flex-start;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+@media (max-width: 1060px) {
+  .hero,
+  .insights {
+    grid-template-columns: 1fr;
+  }
+
+  .kpis {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .services {
+    padding: 96px 20px 56px;
+    gap: 28px;
+  }
+
+  .heroImage {
+    height: 240px;
+  }
+
+  .kpis,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .insightText,
+  .catalog {
+    padding: 20px;
+  }
 }

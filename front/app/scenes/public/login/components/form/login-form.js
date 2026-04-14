@@ -7,17 +7,17 @@ export async function LoginFormComponent() {
   root.innerHTML = `
       <div class = "${style.backgroundOpacity}">
         <form id="loginForm" class="${style.form}">
-          <h2 class ="${style.Login}">Login</h2>
-          <label for="email" class="${style.label}">Email:</label>
+          <h2 class ="${style.Login}">Iniciar sesion</h2>
+          <label for="email" class="${style.label}">Correo:</label>
           <input type="text" id="email" name="email" autocomplete="email" class="${style['input-email']}">
-          <label for="password" class="${style.label}">Password:</label>
+          <label for="password" class="${style.label}">Contrasena:</label>
           <input type="password" id="password" name="password" autocomplete="current-password" class="${style['input-password']}">
-          <button type="submit" class="${style['button-send']}">Login</button>
+          <button type="submit" class="${style['button-send']}">Entrar</button>
         </form>
         <div class="${style.divRight}">
-          <h2>Still do not have an account?</h2>
-          <p>Register so you can login</p>
-          <button class= "${style.registerBtn}">Register</button>
+          <h2>Aun no tienes una cuenta?</h2>
+          <p>Registrate para ingresar</p>
+          <button class= "${style.registerBtn}">Registrarme</button>
         </div>
       </div>
     `;
@@ -29,7 +29,7 @@ export async function LoginFormComponent() {
     const password = document.getElementById('password').value;
 
     if(!formValidator(email, password)){
-      alert('Please fill in all fields');
+      alert('Completa todos los campos');
       return;
     }
     const token = await login(email, password);
@@ -37,7 +37,7 @@ export async function LoginFormComponent() {
       localStorage.setItem('token', token);
       navigateTo('/dashboard');
     } else {
-      alert('Invalid credentials');
+      alert('Credenciales invalidas');
     }
   });
 }
@@ -61,7 +61,7 @@ export async function login(email, password) {
     console.log("hola",data);
     return data.token;
   } catch (error) {
-    console.error('Login failed:', error);
+    console.error('Error de inicio de sesion:', error);
     return null;
   }
 }

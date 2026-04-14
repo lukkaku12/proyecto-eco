@@ -1,5 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS eco;
+CREATE DATABASE IF NOT EXISTS eco CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE eco;
 
 -- --------------------------------------------------------
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_rol_id` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `content` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_author_id` FOREIGN KEY (`id_author`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id_category` int(255) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_id_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_id_author` FOREIGN KEY (`id_author`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_id_article` FOREIGN KEY (`id_article`) REFERENCES `articles` (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 

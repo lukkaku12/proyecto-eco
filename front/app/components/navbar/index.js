@@ -13,10 +13,10 @@ export function NavigationBar() {
     </div>
   <!--header opciones -->
     <nav class="${styles.navigation}">
-        <a href="/home-page" id="nav-home" class="${styles.active}">Home</a>
-        <a href="/about-us" id="nav-about">About</a>
-        <a href="/services" id="nav-service">Service</a>
-        <a href="/home-page?section=contact" id="nav-contact">Contact</a>
+        <a href="/home-page" id="nav-home" class="${styles.active}">Inicio</a>
+        <a href="/about-us" id="nav-about">Nosotros</a>
+        <a href="/services" id="nav-service">Servicios</a>
+        <a href="/home-page?section=contact" id="nav-contact">Contacto</a>
     </nav>
   <!-- header buscar, carrito y login -->
   <div class="${styles.nav_active}">
@@ -38,7 +38,7 @@ export function NavigationBar() {
                         <div class="${styles.botones}">
                           <p>Total:</p>
                           <p id="precio_total"></p>
-                          <a href="#" id="pagar" class="${styles.btn_3}">to pay</a>
+                          <a href="#" id="pagar" class="${styles.btn_3}">Pagar</a>
                           <a href="#" id="vaciar-carrito" class="${styles.btn_3}">Vaciar carrito</a>
                         </div>
                     </div>

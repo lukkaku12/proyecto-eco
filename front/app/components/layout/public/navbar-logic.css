@@ -282,10 +282,9 @@
   background-color: rgba(41, 129, 114, 0.92);
   border-radius: 20px;
   display: flex;
-  gap: 24px;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 10vh;
   overflow: auto;
   color: #fff;
 }

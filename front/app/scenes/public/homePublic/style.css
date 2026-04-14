@@ -183,6 +183,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 13vh;
   }
   
   .about_title{
@@ -222,14 +223,16 @@ main{
 
 .statistics p{
   background-color: var(--primary-color);
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 124px;
+  height: 124px;
+  border-radius: 62px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  padding: 10px;
+  font-size: 17px;
+  line-height: 1.2;
   font-weight: 600;
   color: var(--second-color);
 }
@@ -353,59 +356,80 @@ main{
   position: relative;
   width: 100%;
   max-width: 312.96px;
-  height: 350px;
-  border-radius: 40px;
+  height: 360px;
+  border-radius: 32px;
   background-color: #298172;
+  box-shadow: 0 14px 30px rgba(0, 51, 41, 0.25);
+  overflow: hidden;
 }
 
 .card_prodct{
-  position: absolute;
-  top: -10px;
-  left: -10px;
+  position: relative;
   background-color: #003329;
-  border-radius: 40px;
-  width: calc(100% + 10px);
-  height: 350px;
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  padding: 12px 14px 16px;
 }
 
 .card_prodct img{
-  width: calc(100% - 24px);
-  height: 200px;
-  border-radius: 40px;
-  margin-top: 12px;
+  width: 100%;
+  height: 190px;
+  border-radius: 24px;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
 .title_product{
   color: #f9f9f9;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
-  margin-left: 30px;
+  width: 100%;
+  margin: 0;
+  padding: 0 4px;
+  text-align: center;
+  line-height: 1.25;
+  min-height: 52px;
 }
 
 .producct_info{
   display: flex;
-  gap: 20px;
+  gap: 12px;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
 }
 
 .producct_info p{
-  margin-left: 30px;
+  margin: 0;
   color: #f9f9f9;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .btn2{
   background-color: #298172;
   border: none;
-  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 8px 14px;
   color: #f9f9f9;
-  border-radius: 40px;
+  border-radius: 999px;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn2:hover{
+  background-color: #3aa493;
 }
 
 .cards{

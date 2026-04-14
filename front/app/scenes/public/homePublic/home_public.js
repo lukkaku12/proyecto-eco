@@ -47,15 +47,15 @@ export function HomePagePublic(params) {
         <!-- about us -->
         <section class="${styles.about} " id="about_secion">
           <div class="${styles.about_txt}">
-            <h2 class="${styles.about_title}">About Us</h2>
+            <h2 class="${styles.about_title}">Sobre nosotros</h2>
             <div class="${styles.statistics}">
-              <p>+5000 Sales</p>
-              <p>+300 Clients</p>
-              <p>50 Products</p>
-              <p>+20 <br> Allies</p>
+              <p>+5000 Ventas</p>
+              <p>+300 Clientes</p>
+              <p>50 Productos</p>
+              <p>+20 <br> Aliados</p>
             </div>
             <p class="${styles.cont_txt}">En Eco store creemos que comprar mejor tambi\u00e9n es cuidar el planeta. Por eso reunimos productos ecol\u00f3gicos para el hogar, bienestar y alimentaci\u00f3n, seleccionados por su impacto positivo y calidad. Nuestro objetivo es ayudarte a llevar un estilo de vida m\u00e1s consciente, pr\u00e1ctico y sostenible en tu d\u00eda a d\u00eda.</p>
-            <a href="" class="${styles.btn1}">See More</a>
+            <a href="" id="about-more-btn" class="${styles.btn1}">Ver mas</a>
           </div>
           <div class="${styles.about_img}">
             <img src="${imagenAbout}" alt="">
@@ -63,7 +63,7 @@ export function HomePagePublic(params) {
         </section>
         <!-- seccion de productos -->
         <section class="${styles.products}">
-          <h2 class="${styles.about_title}">Products</h2>
+          <h2 class="${styles.about_title}">Productos</h2>
           <div class="${styles.category}">
             <button id="mari"><img src="${hojaM}" alt=""></button>
             <button id="casa"><img src="${casa}" alt=""></button>
@@ -71,7 +71,7 @@ export function HomePagePublic(params) {
             <button id="papel"><img src="${papel}" alt=""></button>
             <div class="f"></div>
           </div>
-          <p class="${styles.text_product_top}">Top select</p>
+          <p class="${styles.text_product_top}">Seleccion destacada</p>
           <div class="${styles.top_product}">
             <div class="${styles.arrows} left" id="left">
               <img class="${styles.arrow}" src="${arrow_back_ios_24dp_FILL0_wght400_GRAD0_opsz24}" alt="">
@@ -91,8 +91,8 @@ export function HomePagePublic(params) {
                 </div>
                 <div class="${styles.comentarios_text}">
                     <p class="${styles.artles_ttitle}">Consumo responsable, resultados reales</p>
-                    <p class="${styles.arles_txt}">Cada compra en ECO-ST est\u00e1 pensada para reducir residuos y apoyar alternativas m\u00e1s limpias. Desde alimentos de origen responsable hasta productos reutilizables, te ayudamos a reemplazar h\u00e1bitos cotidianos por opciones que suman al planeta.</p>
-                    <a href="" class="${styles.btn3}">Read More</a>
+                    <p class="${styles.arles_txt}">Cada compra en Eco Store est\u00e1 pensada para reducir residuos y apoyar alternativas m\u00e1s limpias. Desde alimentos de origen responsable hasta productos reutilizables, te ayudamos a reemplazar h\u00e1bitos cotidianos por opciones que suman al planeta.</p>
+                    <a href="" class="${styles.btn3}">Leer mas</a>
                 </div>
             </div>
             <div class="${styles.algunos_comentarios}">
@@ -102,7 +102,7 @@ export function HomePagePublic(params) {
                 <div class="${styles.comentarios_text}">
                     <p class="${styles.artles_ttitle}">Tu hogar, m\u00e1s verde y funcional</p>
                     <p class="${styles.arles_txt}">Seleccionamos productos que cuidan tu salud y la de tu familia, sin perder dise\u00f1o ni funcionalidad. Detergentes biodegradables, utensilios durables y soluciones inteligentes para un hogar moderno con menor huella ambiental.</p>
-                    <a href="" class="${styles.btn3}">Read More</a>
+                    <a href="" class="${styles.btn3}">Leer mas</a>
                 </div>
             </div>
             <div class="${styles.algunos_comentarios}">
@@ -112,7 +112,7 @@ export function HomePagePublic(params) {
                 <div class="${styles.comentarios_text}">
                     <p class="${styles.artles_ttitle}">Impacto medible en cada decisi\u00f3n</p>
                     <p class="${styles.arles_txt}">Trabajamos con aliados y categor\u00edas que promueven econom\u00eda circular, materiales renovables y procesos de bajo impacto. As\u00ed, cada producto que eliges en la tienda aporta a una cadena de valor m\u00e1s justa y sostenible.</p>
-                    <a href="" class="${styles.btn3}">Read More</a>
+                    <a href="" class="${styles.btn3}">Leer mas</a>
                 </div>
             </div>
         </section>
@@ -157,11 +157,19 @@ export function HomePagePublic(params) {
     let carrito = document.getElementById('carrito');
     let input = document.getElementById('input_1');
     let aboutSection = document.getElementById('about_secion');
+    let aboutMoreBtn = document.getElementById('about-more-btn');
     let about = document.getElementById('nav-about');
     let contactSection = document.getElementById('contact-section');
 
     if (about) {
       about.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        navigateTo('/about-us');
+      });
+    }
+
+    if (aboutMoreBtn) {
+      aboutMoreBtn.addEventListener('click', (evento) => {
         evento.preventDefault();
         navigateTo('/about-us');
       });
@@ -192,6 +200,28 @@ export function HomePagePublic(params) {
         const sliderStyles = window.getComputedStyle(slider);
         const gap = parseFloat(sliderStyles.columnGap || sliderStyles.gap) || 0;
         const step = firstProduct.offsetWidth + gap;
+        const maxScrollLeft = Math.max(0, slider.scrollWidth - slider.clientWidth);
+        const currentLeft = slider.scrollLeft;
+        const threshold = 2;
+        const isAtStart = currentLeft <= threshold;
+        const isAtEnd = currentLeft >= maxScrollLeft - threshold;
+
+        if (direction > 0 && isAtEnd) {
+          slider.scrollTo({
+            left: 0,
+            behavior: 'smooth',
+          });
+          return;
+        }
+
+        if (direction < 0 && isAtStart) {
+          slider.scrollTo({
+            left: maxScrollLeft,
+            behavior: 'smooth',
+          });
+          return;
+        }
+
         slider.scrollBy({
           left: direction * step,
           behavior: 'smooth',
@@ -305,7 +335,7 @@ export function HomePagePublic(params) {
               <h3 class="${styles.title_product}">${producto.name}</h3>
               <div class="${styles.producct_info}">
                 <p class="${styles.precio} precio">${producto.price}</p>
-                <a class="${styles.btn2} agregar_carrito" data-id="${producto.id}">Add to cart</a>
+                <a class="${styles.btn2} agregar_carrito" data-id="${producto.id}">Agregar al carrito</a>
               </div>
             </div>
           </div>
